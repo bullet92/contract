@@ -19,6 +19,7 @@ These markers are the supported ones:
 
 Usage
 =====
+This module depends on babel python's module, so please install it first http://babel.pocoo.org/en/latest/dates.html
 
 On a contract (*Sales > Sales > Contracts*), mark "Generate recurring invoices
 automatically" for enabling the creation of recurring invoices.
@@ -38,6 +39,7 @@ Known issues / Roadmap
 ======================
 
 * Add more markers, like #YEAR#.
+* HARD CODED Italian month (just testing)
 
 Bug Tracker
 ===========

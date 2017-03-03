@@ -4,6 +4,7 @@
 
 from openerp import api, fields, models
 from dateutil.relativedelta import relativedelta
+from babel.dates import format_date
 
 
 class AccountAnalyticAccount(models.Model):
@@ -13,7 +14,7 @@ class AccountAnalyticAccount(models.Model):
     def _prepare_invoice(self, contract):
         next_date = fields.Date.from_string(
             contract.recurring_next_date or fields.Date.today())
-        interval = contract.recurring_interval
+        interval = 2
         old_date = next_date
         if contract.recurring_rule_type == 'daily':
             new_date = next_date + relativedelta(days=interval - 1)
@@ -28,8 +29,8 @@ class AccountAnalyticAccount(models.Model):
     def _insert_markers(self, line, date_start, date_end, date_format):
         line = line.replace('#START#', date_start.strftime(date_format))
         line = line.replace('#END#', date_end.strftime(date_format))
-        line = line.replace('#START_MONTH#', date_start.strftime("%B"))
-        line = line.replace('#END_MONTH#', date_end.strftime("%B"))
+        line = line.replace('#START_MONTH#', format_date(date_start, "MMMM" , locale='it'))
+        line = line.replace('#END_MONTH#', format_date(date_end, "MMMM" , locale='it'))
         return line
 
     @api.model
