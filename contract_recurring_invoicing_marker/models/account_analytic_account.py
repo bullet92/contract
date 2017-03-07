@@ -29,6 +29,10 @@ class AccountAnalyticAccount(models.Model):
     def _insert_markers(self, line, date_start, date_end, date_format):
         line = line.replace('#START#', date_start.strftime(date_format))
         line = line.replace('#END#', date_end.strftime(date_format))
+		
+		# Invoiced period  need to start to next month
+		date_start = date(2017, int(date_start.strftime( '%m' )) +1 , 1 )
+		
         line = line.replace('#START_MONTH#', format_date(date_start, "MMMM" , locale='it'))
         line = line.replace('#END_MONTH#', format_date(date_end, "MMMM" , locale='it'))
         return line
