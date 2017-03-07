@@ -39,9 +39,9 @@ Known issues / Roadmap
 ======================
 
 * Add more markers, like #YEAR#.
-* HARD CODED Italian month (just testing)
 * Month's generated invoice is excluded from invoicing period ( for pre-paid invoice service). Need to be an option.
-
+* Add fallback for lang variabile
+* Add expiration to invoice
 Bug Tracker
 ===========
 

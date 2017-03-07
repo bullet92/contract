@@ -32,8 +32,11 @@ class AccountAnalyticAccount(models.Model):
         line = line.replace('#END#', date_end.strftime(date_format))
         # Invoiced period  need to start to next month
         date_start = date(2017, int(date_start.strftime( '%m' )) +1 , 1 )
-        line = line.replace('#START_MONTH#', format_date(date_start, "MMMM" , locale='it'))
-        line = line.replace('#END_MONTH#', format_date(date_end, "MMMM" , locale='it'))
+		#provare se la variabile lang è già disponibile in questa funzione
+		#accertarsi che la variabile abbia un qualche valore di fallback
+        #lang=it
+        line = line.replace('#START_MONTH#', format_date(date_start, "MMMM" , locale=lang).upper())
+        line = line.replace('#END_MONTH#', format_date(date_end, "MMMM" , locale=lang).upper())
         return line
 
     @api.model
