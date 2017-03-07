@@ -5,6 +5,7 @@
 from openerp import api, fields, models
 from dateutil.relativedelta import relativedelta
 from babel.dates import format_date
+from datetime import date
 
 
 class AccountAnalyticAccount(models.Model):
