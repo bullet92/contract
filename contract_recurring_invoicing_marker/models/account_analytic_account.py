@@ -34,7 +34,7 @@ class AccountAnalyticAccount(models.Model):
         # Invoiced period  need to start to next month
         date_start = date(2017, int(date_start.strftime( '%m' )) +1 , 1 )
 	try: 
-	lang
+		lang
 	except NameError:
 			lang='it'
         line = line.replace('#START_MONTH#', format_date(date_start, "MMMM" , locale=lang).upper())
