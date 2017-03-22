@@ -32,12 +32,12 @@ class AccountAnalyticAccount(models.Model):
         line = line.replace('#START#', date_start.strftime(date_format))
         line = line.replace('#END#', date_end.strftime(date_format))
         # Invoiced period  need to start to next month
-        date_start = date_start + relativedelta(months=1)
+        date_startN = date_start + relativedelta(months=1)
 	try: 
 		lang
 	except NameError:
 			lang='it'
-        line = line.replace('#START_MONTH#', format_date(date_start, "MMMM" , locale=lang).upper())
+        line = line.replace('#START_MONTH#', format_date(date_startN, "MMMM" , locale=lang).upper())
         line = line.replace('#END_MONTH#', format_date(date_end, "MMMM" , locale=lang).upper())
         return line
 
