@@ -15,7 +15,7 @@ class AccountAnalyticAccount(models.Model):
     def _prepare_invoice(self, contract):
         next_date = fields.Date.from_string(
             contract.recurring_next_date or fields.Date.today())
-        interval = 2
+        interval = contract.recurring_interval
         old_date = next_date
         if contract.recurring_rule_type == 'daily':
             new_date = next_date + relativedelta(days=interval - 1)
