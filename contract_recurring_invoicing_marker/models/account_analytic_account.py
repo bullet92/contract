@@ -32,7 +32,7 @@ class AccountAnalyticAccount(models.Model):
         line = line.replace('#START#', date_start.strftime(date_format))
         line = line.replace('#END#', date_end.strftime(date_format))
         # Invoiced period  need to start to next month
-        date_start = date(2017, int(date_start.strftime( '%m' )) +1 , 1 )
+        date_start = date_start + relativedelta(months=1)
 	try: 
 		lang
 	except NameError:
